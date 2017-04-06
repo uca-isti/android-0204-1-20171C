@@ -3,33 +3,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_home"
+            android:title="Inicio" />
+
+       <item
+            android:id="@+id/nav_volcanes"
+            android:icon="@drawable/ic_terrain"
+            android:title="Volcaness" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_actividades"
+            android:icon="@drawable/ic_local_activity"
+            android:title="Actividades Recreativas" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_guiaT"
+            android:icon="@drawable/ic_guia"
+            android:title="Guia Turistica" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_cercademi"
+                android:icon="@drawable/ic_location"
+                android:title="Cerca de Mi" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_creditos"
+                android:icon="@drawable/ic_credits"
+                android:title="Creditos" />
         </menu>
     </item>
 

@@ -1,8 +1,22 @@
 <resources>
-    <string name="app_name">Volcanahualt</string>
+  <string name="app_name">Volcanahualt</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+  <string name="action_settings">Settings</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  |
+  <string name="volcanes_fragment">Esta es la Sección Volcanes</string>
+  <string name="home_fragment">Esta es la Sección de Inicio</string>
+  <string name="cercademi_fragment">Esta es la Sección de Cerca de Mí</string>
+  <string name="creditos_fragment">Esta es la Sección de Creditos</string>
+  <string name="actividades_fragment">Esta es la Sección de Actividades</string>
+  <string name="guia_fragment">Esta es la Sección de Guia Turistica</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
