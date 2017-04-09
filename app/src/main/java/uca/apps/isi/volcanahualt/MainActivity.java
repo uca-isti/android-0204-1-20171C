@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,21 +16,35 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import uca.apps.isi.volcanahualt.api.Api;
+import uca.apps.isi.volcanahualt.api.ApiInterface;
 import uca.apps.isi.volcanahualt.fragments.ActividadesFragment;
 import uca.apps.isi.volcanahualt.fragments.CercaDeMiFragment;
 import uca.apps.isi.volcanahualt.fragments.CreditosFragment;
 import uca.apps.isi.volcanahualt.fragments.GuiaTuristicaFragment;
 import uca.apps.isi.volcanahualt.fragments.HomeFragment;
 import uca.apps.isi.volcanahualt.fragments.VolcanesFragment;
+import uca.apps.isi.volcanahualt.models.Volcan;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        String Tag = "";
+
+
+            private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
+        getData();
+       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -38,6 +53,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
 
@@ -49,9 +65,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     }
 
-    @Override
+   @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -124,4 +143,29 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    private void getData() {
+        Call<List<Volcan>> call = Api.instance().getVolcanes();
+        call.enqueue(new Callback<List<Volcan>>() {
+            @Override
+            public void onResponse(Call<List<Volcan>> call, Response<List<Volcan>> response) {
+                if (response != null) {
+                    for(Volcan volcan : response.body()) {
+                        Log.i(TAG, volcan.getText());
+                    }
+                }
+                else {
+                    Log.i(TAG, "La respuesta es incorrecta");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Volcan>> call, Throwable throwable) {
+                Log.e(TAG, throwable.getMessage());
+            }
+        });
+
+    }
+
 }
