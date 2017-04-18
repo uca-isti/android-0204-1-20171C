@@ -5,13 +5,13 @@ package uca.apps.isi.volcanahualt.models;
  */
 
 public class Volcan {
-    private String text;
+    private String nombre;
 
-    public String getText() {
-        return text;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

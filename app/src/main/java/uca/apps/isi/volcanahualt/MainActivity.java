@@ -41,9 +41,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        getData();
        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -65,9 +62,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
     }
 
    @Override
@@ -144,28 +138,5 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
-    private void getData() {
-        Call<List<Volcan>> call = Api.instance().getVolcanes();
-        call.enqueue(new Callback<List<Volcan>>() {
-            @Override
-            public void onResponse(Call<List<Volcan>> call, Response<List<Volcan>> response) {
-                if (response != null) {
-                    for(Volcan volcan : response.body()) {
-                        Log.i(TAG, volcan.getText());
-                    }
-                }
-                else {
-                    Log.i(TAG, "La respuesta es incorrecta");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Volcan>> call, Throwable throwable) {
-                Log.e(TAG, throwable.getMessage());
-            }
-        });
-
-    }
 
 }
