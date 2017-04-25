@@ -21,6 +21,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 import uca.apps.isi.volcanahualt.api.Api;
 import uca.apps.isi.volcanahualt.api.ApiInterface;
 import uca.apps.isi.volcanahualt.fragments.ActividadesFragment;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        getData();
+       //getData();
        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void getData() {
+    /* private void getData() {
         Call<List<Volcan>> call = Api.instance().getVolcanes();
         call.enqueue(new Callback<List<Volcan>>() {
             @Override
@@ -166,6 +167,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-    }
+    }*/
 
 }

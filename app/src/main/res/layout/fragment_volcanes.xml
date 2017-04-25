@@ -5,9 +5,17 @@
   tools:context="uca.apps.isi.volcanahualt.fragments.VolcanesFragment">
 
   <!-- TODO: Update blank fragment layout -->
-  <TextView
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/volcan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:text="@string/volcanes_fragment" />
+
+  <TextView
+      android:id="@+id/volcan_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+
 
 </FrameLayout>
